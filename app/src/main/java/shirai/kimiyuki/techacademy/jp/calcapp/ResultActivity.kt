@@ -9,7 +9,7 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-        val ret = intent.getDoubleExtra("result", 0.0)
-        textView.text = "${ret.toString()}"
+        val ret = intent.getStringExtra("ret")
+        textView.setText(ret)
     }
 }

@@ -12,9 +12,11 @@
 
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
               android:id="@+id/firstOperand"
+              android:inputType="numberDecimal"
               android:textAlignment="center"/>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
               android:id="@+id/secondOperand"
+              android:inputType="numberDecimal"
               android:textAlignment="center"/>
     <Button
             android:id="@+id/plus" android:text="+"

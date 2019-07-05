@@ -38,22 +38,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         intent = Intent(this, ResultActivity::class.java)
         val ret = when (v?.id) {
-            R.id.plus -> firstOperand.text.toString().toInt() + secondOperand.text.toString().toInt()
-            R.id.minus -> firstOperand.text.toString().toInt() - secondOperand.text.toString().toInt()
-            R.id.multiply -> firstOperand.text.toString().toInt() * secondOperand.text.toString().toInt()
-            R.id.divide -> firstOperand.text.toString().toInt() / secondOperand.text.toString().toInt()
+            R.id.plus -> firstOperand.text.toString().toDouble() + secondOperand.text.toString().toDouble()
+            R.id.minus -> firstOperand.text.toString().toDouble() - secondOperand.text.toString().toDouble()
+            R.id.multiply -> firstOperand.text.toString().toDouble() * secondOperand.text.toString().toDouble()
+            R.id.divide -> firstOperand.text.toString().toDouble() / secondOperand.text.toString().toDouble()
             else -> Log.d("999", "another clickable view")
         }
-        intent.putExtra( "result", ret.toDouble() )
-        pref.edit().putInt("v1", firstOperand.text.toString().toInt()).apply()
-        pref.edit().putInt("v2", secondOperand.text.toString().toInt()).apply()
+        intent.putExtra("ret", ret.toString())
+        pref.edit().putFloat("v1", firstOperand.text.toString().toFloat()).apply()
+        pref.edit().putFloat("v2", secondOperand.text.toString().toFloat()).apply()
         startActivity(intent)
     }
 
     override fun onResume() {
         super.onResume()
-        firstOperand.setText(pref.getInt("v1", 0).toString())
-        secondOperand.setText(pref.getInt("v2", 0).toString())
+        firstOperand.setText(pref.getFloat("v1", 0F).toString())
+        secondOperand.setText(pref.getFloat("v2", 0F).toString())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
